@@ -2,8 +2,8 @@ import { Alert } from "react-bootstrap";
 
 function MyAlertComponent() {
   return (
-    <div className="text-center mt-4 transparent-alert">
-      <Alert className="transparent-alert">
+    <div className="text-center  myMt transparent-alert">
+      <Alert className="transparent-alert bg-black">
         <h2>Benvenuto nel nostro Bookshop!</h2>
         <p>Trova i tuoi libri preferiti e scoprine di nuovi</p>
       </Alert>

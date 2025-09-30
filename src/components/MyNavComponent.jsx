@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 
 function MyNavComponent() {
   return (
-    <Navbar expand="lg" className="bg-black">
+    <Navbar expand="lg" className="bg-black fixed-top">
       <Container>
         <Navbar.Brand href="#" className="text-white">
           <img src={logo} alt="Logo" width="40" height="40" className="d-inline-block me-2" />

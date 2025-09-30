@@ -32,3 +32,11 @@ body {
   border: none;
   color: white;
 }
+
+.myMt {
+  margin-top: 106px;
+}
+
+.myimgcard {
+  max-height: 465px;
+}
