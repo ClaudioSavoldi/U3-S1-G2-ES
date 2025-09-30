@@ -9,7 +9,7 @@ import fantasyBooks from "../data/fantasy.json";
 
 class AllTheBooks extends Component {
   state = {
-    selectedGenre: "fantasy",
+    selectedGenre: "Fantasy",
   };
 
   handleChange = (event) => {
@@ -21,9 +21,9 @@ class AllTheBooks extends Component {
     const booksByGenre = {
       Horror: horrorBooks,
       History: historicBooks,
-      scifi: scifiBooks,
+      Scifi: scifiBooks,
       Romance: romanceBooks,
-      fantasy: fantasyBooks,
+      Fantasy: fantasyBooks,
     };
 
     const books = booksByGenre[this.state.selectedGenre];
