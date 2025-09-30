@@ -1,0 +1,62 @@
+import { Component } from "react";
+import { Card, Col, Row, Container, Form } from "react-bootstrap";
+
+// Import dei JSON
+import horrorBooks from "../data/Horror.json";
+import historicBooks from "../data/History.json";
+import scifiBooks from "../data/Scifi.json";
+import romanceBooks from "../data/Romance.json";
+import fantasyBooks from "../data/fantasy.json";
+
+class AllTheBooks extends Component {
+  state = {
+    selectedGenre: "fantasy",
+  };
+
+  handleChange = (event) => {
+    this.setState({ selectedGenre: event.target.value });
+  };
+
+  render() {
+    // Oggetto mappa: associa genere all'array di libri
+    const booksByGenre = {
+      Horror: horrorBooks,
+      History: historicBooks,
+      scifi: scifiBooks,
+      Romance: romanceBooks,
+      fantasy: fantasyBooks,
+    };
+
+    const books = booksByGenre[this.state.selectedGenre] || horrorBooks;
+
+    return (
+      <Container className=" mt-4 text-center d-flex flex-column align-items-center">
+        {/* Select per cambiare il genere */}
+        <Form.Select value={this.state.selectedGenre} onChange={this.handleChange} className="mb-4 transparent-card  text-white text-center bg-dark w-25">
+          {Object.keys(booksByGenre).map((genre) => (
+            <option key={genre} value={genre}>
+              {genre}
+            </option>
+          ))}
+        </Form.Select>
+
+        {/* Griglia dei libri */}
+        <Row className="g-4">
+          {books.map((book) => (
+            <Col key={book.asin} xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex">
+              <Card className="h-100 d-flex flex-column transparent-card rounded">
+                <Card.Img variant="top" src={book.img} />
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title className="mt-auto">{book.title}</Card.Title>
+                  <Card.Text className="mt-auto">€ {book.price}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    );
+  }
+}
+
+export default AllTheBooks;
